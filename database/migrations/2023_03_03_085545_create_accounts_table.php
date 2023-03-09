@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('total_balance');
             $table->string('total_transaction');
             $table->string('total_deduct');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
+
+            
+            
       
 
  

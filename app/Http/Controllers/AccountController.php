@@ -12,7 +12,9 @@ class AccountController extends Controller
     public function index()
     {
         $accounts = Account::all();
-       
+
+    
+
         return view('home', ['accounts'=>$accounts]);
     }
 
@@ -22,14 +24,21 @@ class AccountController extends Controller
     public function create(Request $req)
     {
         $accounts = new Account;
-  
-        $accounts->account_name=$req->account_name;
+        // dd(auth()->user()->id);
+       
+       $accounts->account_name=$req->account_name;
         $accounts->account_number=$req->account_number;
         $accounts->total_balance=$req->total_balance;
         $accounts->total_transaction=$req->total_transaction;
         $accounts->total_deduct=$req->total_deduct;
-
+       
+ 
+        $accounts->users_id=auth()->user()->id;
+        $accounts->account_models_id=auth()->user()->id;
+       
         $accounts->save();
+
+        return redirect('home');
 
     }
 
@@ -52,17 +61,27 @@ class AccountController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $data = Account::find($id);
+        return view('editform',['data'=>$data]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $req)
+{
+     $accounts = Account::find($req->$id);
+        $accounts->account_name=$req->account_name;
+        $accounts->account_number=$req->account_number;
+        $accounts->total_balance=$req->total_balance;
+        $accounts->total_transaction=$req->total_transaction;
+        $accounts->total_deduct=$req->total_deduct;
+
+
+        $accounts->save();
+        // return redirect(route('index'))->with('status', 'Student Updated !!!');
     }
 
     /**
@@ -70,7 +89,13 @@ class AccountController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       
+        
+            $accounts = Account::find($id);
+             $accounts->delete();
+             return redirect('home');
+        
+    
     }
     
 }

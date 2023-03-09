@@ -20,26 +20,6 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <body id="page-top">
-
-    <!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div> -->
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -52,7 +32,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
-
             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -65,8 +44,6 @@
                 <a class="nav-link" href="home"> <span>Accounts</span></a>
             </li>
             <!-- Divider -->
-
-            <!-- Nav Item - Tables -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -95,50 +72,57 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                    <h5 class="mb-2 text-gray-800">Add Accounts</h5>
+                    <h5 class="mb-2 text-gray-800">Users</h5>
                     <!-- DataTales Example -->
                     <div class="card shadow">
                         <div class="card-header py-3 d-flex justify-content-between">
                             <div>
-
-
-                                <a href="add_accounts"> Add New</a>
-
+                                <a href="add_users">
+                                    <h6 class="font-weight-bold text-primary mt-2">Add New</h6>
+                                </a>
                             </div>
-
+                            <!-- <div>
+                                <form class="navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-white border-0 small"
+                                            placeholder="Search for...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button"> <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> -->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Account Name</th>
-                                            <th>Account Number</th>
-                                            <th>Total Balance</th>
-                                            <th>Total Transactions</th>
-                                            <th>Total Deduct</th>
-                                            <th colspan="4">Action</th>
+
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        @foreach($accounts as $au)
+
+                                        @foreach($accounts as $accounts)
                                         <tr>
-                                            <td>{{$au['id']}}</td>
-                                            <td>{{$au['account_name']}}</td>
-                                            <td>{{$au['account_number']}}</td>
-                                            <td>{{$au['total_balance']}}</td>
-                                            <td>{{$au['total_transaction']}}</td>
-                                            <td>{{$au['total_deduct']}}</td>
+
+                                            <td>{{$accounts['user_name']}}</td>
+                                            <td>{{$accounts['user_email']}}</td>
+                                            <td>{{$accounts['user_phone']}}</td>
+
                                             <td>
 
-                                                <a href="users" class="btn btn-info btn-sm">Users</a>
-                                                <a href="" class="btn btn-danger btn-sm">Transactions</a>
-                                                <a href={{'update/'.$au['id']}} class="btn btn-info btn-sm">Edit</a>
-                                                <a href={{'delete/'.$au['id']}} class="btn btn-danger btn-sm">Delete</a>
+
+
+                                                <a href="" class="btn btn-info btn-sm">Edit</a>
+                                                <a href="" class="btn btn-danger btn-sm">Delete</a>
 
 
                                             </td>
@@ -148,36 +132,14 @@
 
                                         </tr>
                                         @endforeach
+
                                     </tbody>
 
 
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
             </div>
-
-        </div>
-        <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="vendor/js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
-
-</body>
-
-</html>

@@ -40,7 +40,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="home"> <span>Accounts</span></a>
+                <a class="nav-link" href="add_accounts"> <span>Accounts</span></a>
             </li>
             <!-- Divider -->
 
@@ -48,7 +48,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaction"> <span>Transaction</span> </a>
+                <a class="nav-link collapsed" href=""> <span>Transaction</span> </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -74,41 +74,34 @@
                         <div class="col-sm-6">
                             <form action="" method="POST">
                                 @csrf
+
+
+
                                 <div class="mb-3">
 
-                                    <label for="">Account Name</label>
-                                    <input type="text" name="account_name" class="form-control" placeholder=""
+                                    <label for=""> Name</label>
+                                    <input type="text" name="user_name" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <!-- <small
+                                        id="helpId" class="text-muted">Help text</small> -->
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Email</label>
+                                    <input type="email" name="user_email" class="form-control" placeholder=""
                                         aria-describedby="helpId">
                                     <!-- <small id="helpId" class="text-muted">Help text</small> -->
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="">Account Number</label>
-                                    <input type="text" name="account_number" class="form-control" placeholder=""
-                                        aria-describedby="helpId" name="account_number">
+                                    <label for="">Phone Number</label>
+                                    <input type="number" name="user_phone" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
                                     <!-- <small id="helpId" class="text-muted">Help text</small> -->
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="">Total Balance</label>
-                                    <input type="text" name="total_balance" class="form-control" placeholder=""
-                                        aria-describedby="helpId" name="total_balance">
-                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="">Total Transactions</label>
-                                    <input type="text" name="total_transaction" class="form-control" placeholder=""
-                                        aria-describedby="helpId" name="total_transaction">
-                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="">Total Deduct</label>
-                                    <input type="text" name="total_deduct" class="form-control" placeholder=""
-                                        aria-describedby="helpId" name="total_deduct">
-                                    <!-- <small id="helpId" class="text-muted">Help text</small> -->
-                                </div>
 
 
 
@@ -116,8 +109,6 @@
 
 
                             </form>
-                        </div>
-                    </div>
-                </div>
 
-                @endsection
+                        </div>
+                        @endsection
